@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* assets/css/main.css */
+
+/* 1. Tipografías Personalizadas */
+@font-face {
+  font-family: 'Kabilla';
+  src: url('/assets/fonts/Kabilla.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ElderFuthark';
+  src: url('/assets/fonts/RUNE.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Clase especial para renderizar runas con RUNE.ttf */
+.rune-glyph {
+  font-family: 'ElderFuthark', sans-serif;
+  letter-spacing: normal;
+}
+
+/* 2. Variables de la paleta Cozy / Brujil y Tipografías */
+:root {
+  --bg-main: #121113;
+  --bg-card: #1a181b;
+  --bg-card-hover: #242125;
+  --border-color: #363138;
+  
+  --text-primary: #e6e1da;
+  --text-muted: #b3ac9f;
+  
+  --accent-earth: #a86a51;
+  --accent-gold: #d4a359;
+  --accent-gold-glow: rgba(212, 163, 89, 0.15);
+
+  /* Variables Tipográficas */
+  --font-title: 'Kabilla', 'Georgia', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* 3. Reset básico y tipografía general */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  background-image: 
+    linear-gradient(
+      to bottom, 
+      rgba(18, 17, 19, 0.25), 
+      rgba(18, 17, 19, 0.55)
+    ), 
+    url('/img/grivowallpaper.jpg');
+  
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  
+  font-size: 18px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center top;
+    font-size: 19px;
+  }
+}
+
+/* Títulos con Kabilla */
+h1, h2, h3, h4, .font-title {
+  font-family: var(--font-title);
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.85rem; }
+h3 { font-size: 1.45rem; }
+
+/* 4. Scrollbar personalizada minimalista */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-earth);
+}
+
+/* 5. Clases de utilidad */
+.card-grimorio {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.card-grimorio:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--accent-gold);
+  box-shadow: 0 4px 20px var(--accent-gold-glow);
+}
+
+.input-grimorio {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  border-radius: 8px;
+  padding: 0.85rem 1.15rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.input-grimorio:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+.btn-grimorio {
+  background-color: var(--accent-earth);
+  color: #fff;
+  border: none;
+  font-family: var(--font-body);
+  border-radius: 8px;
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn-grimorio:hover {
+  opacity: 0.9;
+}
+
+.btn-grimorio:active {
+  transform: scale(0.98);
+}
